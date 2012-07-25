@@ -1,0 +1,128 @@
+/*
+---------------------------------
+Project:  Project Name
+Company:  Company Name 
+Autor:    Ramon Victor
+Data:     05/2012
+---------------------------------
+*/
+
+/* Reset */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,a,abbr,address,cite,code,em,img,small,strong,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,header,nav,article,section,dialog,figure,aside,footer 
+{margin:0;padding:0;border:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+ol,ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
+ins{text-decoration:none}
+del{text-decoration:line-through}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:none}
+a{overflow:hidden}
+
+abbr[title]{border-bottom:1px dotted}
+strong{font-weight:bold}
+small{font-size:85%}
+
+img{-ms-interpolation-mode:bicubic}
+
+label{cursor:pointer}
+button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle}
+textarea{overflow:auto;vertical-align:top}
+button,input{line-height:normal;*overflow:visible}
+input[type="search"]{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box}
+button{width:auto;overflow:visible}
+button::-moz-focus-inner,input[type="reset"]::-moz-focus-inner,input[type="button"]::-moz-focus-inner,input[type="submit"]::-moz-focus-inner,input[type="file"] > input[type="button"]::-moz-focus-inner{border:0;padding:0;margin:0}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block}
+
+::-moz-selection{background:#f78f1e;color:#fff;text-shadow:none}
+::selection{background:#f78f1e;color:#fff;text-shadow:none}
+
+a{color:#00e}
+a:visited{color:#551a8b}
+a:hover{color:#06e}
+a:focus{outline:thin dotted}
+a:hover,a:active{outline:0}
+
+strong{font-weight:bold}
+small{font-size:85%}
+
+ul,ol{margin:1em 0;padding:0 0 0 40px}
+nav ul,nav ol{list-style:none;list-style-image:none;margin:0;padding:0}
+
+img{border:0;-ms-interpolation-mode:bicubic;vertical-align:middle}
+
+figure{margin:0}
+
+form{margin:0}
+fieldset{border:0;margin:0;padding:0}
+label{cursor:pointer}
+legend{border:0;*margin-left:-7px;padding:0;white-space:normal}
+button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle}
+button,input{line-height:normal}
+button,input[type="button"],input[type="reset"],input[type="submit"]{cursor:pointer;-webkit-appearance:button;*overflow:visible}
+button[disabled],input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;*width:13px;*height:13px}
+input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}
+input[type="search"]::-webkit-search-decoration,input[type="search"]::-webkit-search-cancel-button{-webkit-appearance:none}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top;resize:vertical}
+input:valid,textarea:valid{ }
+input:invalid,textarea:invalid{background-color:#f0dddd}
+
+table{border-collapse:collapse;border-spacing:0}
+td{vertical-align:top}
+
+.chromeframe{margin:0.2em 0;background:#ccc;color:black;padding:0.2em 0}
+
+/* ===== base  */
+
+html{font-size:100%;overflow-y:scroll;-webkit-overflow-scrolling:touch;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+body{font-size:13px;line-height:1.231}
+body,button,input,select,textarea{font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#636363}
+
+
+/* ===== header */
+
+/* ===== footer */
+
+
+/* ===== home */
+
+
+
+
+
+
+
+
+/* ========= rv framework */
+.none{display:none}
+.clr{clear:both}
+.skip{display:block;text-indent:-9999em;overflow:hidden}
+.left{float:left}
+.right{float:right}
+.blck{display:block}
+
+.group:before,.group:after{content:"";display:table}
+.group:after{clear:both}
+.group{zoom:1}
+
+/* ===== print */
+ 
+@media print{
+  *{background:transparent!important;color:black!important;box-shadow:none !important;text-shadow:none!important;filter:none!important;-ms-filter:none !important} /* Black prints faster:h5bp.com/s */
+  a,a:visited{text-decoration:underline}
+  a[href]:after{content:" (" attr(href) ")"}
+  abbr[title]:after{content:" (" attr(title) ")"}
+  .ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}  /* Don't show links for images,or javascript/internal links */
+  pre,blockquote{border:1px solid #999;page-break-inside:avoid}
+  thead{display:table-header-group} /* h5bp.com/t */
+  tr,img{page-break-inside:avoid}
+  img{max-width:100% !important}
+  @page{margin:0.5cm}
+  p,h2,h3{orphans:3;widows:3}
+  h2,h3{page-break-after:avoid}
+}
