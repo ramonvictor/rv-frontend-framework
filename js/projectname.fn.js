@@ -1,8 +1,25 @@
-/* Author:
+$(document).ready(function(){
 
-*/
+//last li main nav
+var main = gid('main');
+var external = main.find('a[rel=external]');
+if( external.length )
+	external.external_link();
 
+});
 
+//get id with performance
+function gid( theid ){
+	return $( document.getElementById( theid ) );
+}
+//debug
+function log( m ){
+	console.log( m );
+}
 
-
-
+$.fn.external_link = function(){
+	$(this).on('click',function(e){
+		e.preventDefault();
+		window.open( $(this).attr('href') );
+	});
+}
