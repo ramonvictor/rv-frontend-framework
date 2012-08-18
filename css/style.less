@@ -1,0 +1,100 @@
+/*
+---------------------------------
+Project:  Project Name
+Company:  Company Name 
+Autor:    Ramon Victor
+Data:     05/2012
+---------------------------------
+*/
+
+// Reset
+@import "reset";
+
+// base
+html {
+  font-size: 100%;
+  overflow-y: scroll
+}
+body {
+  font-size: 13px;
+  line-height: 1
+}
+body,button,input,select,textarea {
+  font-family: arial,sans-serif;
+  color: #5c5c5c;
+  font-size: 10px
+}
+::-moz-selection {
+  background: #616161;
+  color: #fff;
+  text-shadow:none
+}
+::selection {
+  background: #616161;
+  color: #fff;
+  text-shadow: none
+}
+a {
+  color: #ae0d19;
+  text-decoration: none
+}
+a:focus {
+  outline: thin dotted
+}
+a:hover,a:active {
+  outline: 0;
+  text-decoration: none
+}
+// typografy
+h1,h2,h3 {
+  font-weight: bold
+}
+h1 {
+  font-size: 30px
+}
+h2 {
+  font-size: 18px
+}
+p {
+  line-height: 130%;
+  margin-bottom: .7em;
+}
+// base 
+// footer
+
+// reusable classes
+.none { display: none }
+.clr { clear: both }
+.left { float: left }
+.right { float: right }
+.blck { display: block }
+.skip {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block
+}
+.group:before,.group:after {
+  content: "";
+  display: table
+}
+.group:after {
+  clear: both
+}
+.group {
+  zoom: 1
+}
+.rounded (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+.trans (@trans-prop: all, @trans-time: .5s, @trans-anim: ease-out) {
+  -moz-transition: @arguments;
+  -o-transition-property: @arguments;
+  -webkit-transition: @arguments;
+  transition: @arguments;
+}
+
+// print
+@import "print";
