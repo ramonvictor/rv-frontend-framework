@@ -18,10 +18,12 @@ function log( m ) {
 	console.log( m );
 }
 
+//attach external click function
 $.fn.external_link = function() {
 	var e_links = $(this);
-	e_links.on('click',function(e){
+	e_links.on('click', function( e ) {
 		e.preventDefault();
+		//open in a new tab
 		window.open( this.href );
 	});
 }
