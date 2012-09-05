@@ -1,25 +1,27 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
-//last li main nav
-var main = gid('main');
-var external = main.find('a[rel=external]');
-if( external.length )
-	external.external_link();
+	//last li main nav
+	var main = gid('main'),
+		external = main.find('a[rel=external]');
+	if( external.length )
+		external.external_link();
 
 });
 
 //get id with performance
-function gid( theid ){
+function gid( theid ) {
 	return $( document.getElementById( theid ) );
 }
+
 //debug
-function log( m ){
+function log( m ) {
 	console.log( m );
 }
 
-$.fn.external_link = function(){
-	$(this).on('click',function(e){
+$.fn.external_link = function() {
+	var e_links = $(this);
+	e_links.on('click',function(e){
 		e.preventDefault();
-		window.open( $(this).attr('href') );
+		window.open( this.href );
 	});
 }
