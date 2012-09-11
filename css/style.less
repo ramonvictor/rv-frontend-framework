@@ -1,7 +1,7 @@
 /* ===================================
  * Project:  Project Name
  * Company:  Company Name 
- * Autor:    Ramon Victor
+ * Author:   Ramon Victor
  * Data:     05/2012
  * ===================================
  */
@@ -18,7 +18,7 @@ body {
   font-size: 13px;
   line-height: 1
 }
-body,button,input,select,textarea {
+body, button, input, select, textarea {
   font-family: arial,sans-serif;
   color: #5c5c5c;
   font-size: 10px
@@ -46,15 +46,11 @@ a:hover,a:active {
 }
 
 // Typografy
-h1,h2,h3 {
+h1, h2, h3 {
   font-weight: bold
 }
-h1 {
-  font-size: 30px
-}
-h2 {
-  font-size: 18px
-}
+h1 { font-size: 30px }
+h2 { font-size: 18px }
 p {
   line-height: 130%;
   margin-bottom: .7em;
@@ -72,22 +68,19 @@ p {
   overflow: hidden;
   display: block
 }
-.group:before,.group:after {
+.group:before, .group:after {
   content: "";
   display: table
 }
-.group:after {
-  clear: both
-}
-.group {
-  zoom: 1
-}
-.rounded (@radius: 5px) {
+.group:after { clear: both }
+.group { zoom: 1 }
+
+.rounded ( @radius: 5px ) {
   border-radius: @radius;
   -webkit-border-radius: @radius;
   -moz-border-radius: @radius;
 }
-.trans (@trans-prop: all, @trans-time: .5s, @trans-anim: ease-out) {
+.trans ( @trans-prop: all, @trans-time: .5s, @trans-anim: ease-out ) {
   -moz-transition: @arguments;
   -o-transition-property: @arguments;
   -webkit-transition: @arguments;
