@@ -80,14 +80,16 @@
     }
 
     .row {
-      margin-left: @gridGutterWidth * -1;
       .group;
+      [class*="span"]:last-child{
+        margin-right: 0;
+      }
     }
 
     [class*="span"] {
       float: left;
       min-height: 1px; // prevent collapsing columns
-      margin-left: @gridGutterWidth;
+      margin-right: @gridGutterWidth;
     }
 
     // Set the container width, and override it for fixed navbars in media queries
