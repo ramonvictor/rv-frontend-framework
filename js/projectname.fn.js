@@ -6,6 +6,9 @@ $(document).ready(function() {
 	if( external.length )
 		external.external_link();
 
+	// hover dropdown
+	$('.dropdown-toggle').dropdownHover();
+
 });
 
 //get id with performance
