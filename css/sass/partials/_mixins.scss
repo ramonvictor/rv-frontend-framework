@@ -1,0 +1,30 @@
+// .border-radius ( $radius: 5px ) {
+//   border-radius: $radius;
+//   -webkit-border-radius: $radius;
+//   -moz-border-radius: $radius;
+// }
+
+// .transition ( $trans-prop: all, $trans-time: .5s, $trans-anim: ease-out ) {
+//   -moz-transition: $arguments;
+//   -o-transition-property: $arguments;
+//   -webkit-transition: $arguments;
+//   transition: $arguments;
+// }
+
+@mixin vertical-align( $h ){
+  height: $h;
+  line-height: $h;
+}
+
+// Drop shadows
+// @mixin .box-shadow($shadow) {
+//   -webkit-box-shadow: $shadow;
+//      -moz-box-shadow: $shadow;
+//           box-shadow: $shadow;
+// }
+
+@mixin box-dimentions($w, $h){
+  display: block;
+  width: $w;
+  height: $h;
+}
