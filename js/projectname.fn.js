@@ -1,5 +1,4 @@
-$(document).ready(function() {
-
+(function($) {
 	//last li main nav
 	var main = gid('main'),
 		external = main.find('a[rel=external]');
@@ -7,9 +6,9 @@ $(document).ready(function() {
 		external.external_link();
 
 	// hover dropdown
-	$('.dropdown-toggle').dropdownHover();
+	// $('.dropdown-toggle').dropdownHover();
 
-});
+}(jQuery));
 
 //get id with performance
 function gid( theid ) {
