@@ -182,44 +182,6 @@ p {
   margin-bottom: .7em;
 }
 
-.hide {
-  display: none;
-}
-
-.show {
-  display: block;
-}
-
-.clr {
-  clear: both;
-}
-
-.left {
-  float: left;
-}
-
-.right {
-  float: right;
-}
-
-.skip {
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  display: block;
-}
-
-.group {
-  zoom: 1;
-}
-.group:before, .group:after {
-  content: "";
-  display: table;
-}
-.group:after {
-  clear: both;
-}
-
 .sample-icon {
   margin: 0 auto;
   display: block;
@@ -266,8 +228,42 @@ p {
   background: none;
 }
 
-.default-text {
-  font-size: 14px;
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.clr {
+  clear: both;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.skip {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+}
+
+.group {
+  zoom: 1;
+}
+.group:before, .group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
 }
 
 @media print {
