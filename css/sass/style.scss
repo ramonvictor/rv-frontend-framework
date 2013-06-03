@@ -8,16 +8,15 @@
 
 
 @import "globals/variables";
-@import "partials/reset";
-@import "partials/mixins";
-@import "partials/default-tag";
-@import "partials/structure";
+@import "globals/reset";
+@import "globals/mixins";
+@import "globals/default-tag";
 
 @import "globals/useful";
-@import "partials/icons";
+@import "components/icons";
+@import "components/comments";
 @import "plugins/carousel";
 
 @import "globals/global";
 
-// Print css
-@import "partials/print";
+@import "globals/print";

@@ -1,0 +1,10 @@
+@mixin vertical-align( $h ){
+  height: $h;
+  line-height: $h;
+}
+
+@mixin box-dimentions($w, $h){
+  display: block;
+  width: $w;
+  height: $h;
+}

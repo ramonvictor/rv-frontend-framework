@@ -182,10 +182,6 @@ p {
   margin-bottom: .7em;
 }
 
-#main-content {
-  padding-top: 80px;
-}
-
 .hide {
   display: none;
 }
@@ -229,6 +225,10 @@ p {
   display: block;
   width: 20px;
   height: 20px;
+}
+
+#main-content {
+  padding-top: 80px;
 }
 
 #wrap-carrossel {
