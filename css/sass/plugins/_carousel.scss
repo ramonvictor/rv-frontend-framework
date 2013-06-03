@@ -1,0 +1,31 @@
+#wrap-carrossel{
+	width: 950px;
+	min-height: 140px; 
+	position: relative;
+}
+
+.jcarousel-clip-horizontal{
+	width: 950px;
+	min-height: 140px;
+	overflow: hidden
+}
+.jcarousel-next-horizontal, .jcarousel-prev-horizontal{
+	position: absolute;
+	top: 0;
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+	background: url(i/slider-nav.png) no-repeat
+}
+.jcarousel-prev-horizontal{
+	left: 0;
+}
+.jcarousel-next-horizontal{
+	right: 0;
+	background-position: right 0;
+}
+
+.jcarousel-next-disabled,.jcarousel-prev-disabled{
+	cursor:default;
+	background:none
+}

@@ -6,17 +6,18 @@
  * ===================================
  */
 
-// Reset
+
+@import "globals/variables";
 @import "partials/reset";
 @import "partials/mixins";
 @import "partials/default-tag";
 @import "partials/structure";
 
-@import "modules/useful";
+@import "globals/useful";
 @import "partials/icons";
-@import "vendor/carousel";
+@import "plugins/carousel";
 
-@import "modules/global";
+@import "globals/global";
 
 // Print css
 @import "partials/print";

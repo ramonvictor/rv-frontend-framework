@@ -13,7 +13,7 @@ body {
 body, button, input, select, textarea {
   font-family: Arial,sans-serif;
   color: #929292;
-  font-size: 14px
+  font-size: $default-font-size
 }
 ::-moz-selection {
   background: #45b2ad;

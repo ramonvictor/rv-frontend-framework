@@ -135,7 +135,7 @@ body {
 body, button, input, select, textarea {
   font-family: Arial,sans-serif;
   color: #929292;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 ::-moz-selection {
