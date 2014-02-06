@@ -90,3 +90,10 @@ button::-moz-focus-inner,input[type="reset"]::-moz-focus-inner,input[type="butto
 .lt-ie8 button,.lt-ie8 input,.lt-ie8 select,.lt-ie8 textarea {
   vertical-align: middle
 }
+
+// border-box
+*, *:before, *:after {
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box;
+}
