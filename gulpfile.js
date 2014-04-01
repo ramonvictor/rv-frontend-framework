@@ -112,10 +112,10 @@ gulp.task('js-concat', function() {
 *******************************************************************************/
 
 gulp.task('browser-sync', function() {
-    browserSync.init(['css/*.css', 'js/*.js'], {        // files to inject
+    browserSync.init(['css/*.css', 'js/*.js', '**/*.html'], {       // files to inject
         proxy: {
-            host: 'localhost',                          // development server
-            port: '2368'                                // development server port
+            host: 'localhost',             // development server
+            port: '8888'                               // development server port
         }
     });
 });
@@ -125,12 +125,13 @@ gulp.task('browser-sync', function() {
 1. GULP TASKS
 *******************************************************************************/
 
-gulp.task('default', function() {
-    gulp.run('compass', 'js-lint', 'js-uglify' /*'js-concat', 'browser-sync' */ );
+gulp.task('default', function() {   
+    gulp.run('compass', 'js-lint', 'js-uglify', 'browser-sync' /*'js-concat' */ );
+    
     gulp.watch('css/sass/**/*.scss', function() {
         gulp.run('compass');
     });
-    
+
     gulp.watch(target.js_lint_src, function() {
         gulp.run('js-lint');
     });
