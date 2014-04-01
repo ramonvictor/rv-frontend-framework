@@ -68,12 +68,10 @@ button,input {
   line-height:normal
 }
 input[type="search"] {
-  -moz-box-sizing:content-box;
-  -webkit-box-sizing:content-box;
-  box-sizing:content-box
+  box-sizing: content-box;
 }
 input[type="checkbox"],input[type="radio"] {
-  box-sizing:border-box
+  box-sizing: border-box;
 }
 button {
   width:auto;
@@ -82,7 +80,7 @@ button {
 button::-moz-focus-inner,input[type="reset"]::-moz-focus-inner,input[type="button"]::-moz-focus-inner,input[type="submit"]::-moz-focus-inner,input[type="file"]>input[type="button"]::-moz-focus-inner {
   border:0;
   padding:0;
-  margin:0
+  margin:0;
 }
 .lt-ie8 button,.lt-ie8 input {
   overflow:visible

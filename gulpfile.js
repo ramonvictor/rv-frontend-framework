@@ -3,7 +3,6 @@
 *******************************************************************************/
 
 var gulp = require('gulp');                             // gulp core
-    sass = require('gulp-sass'),                        // sass compiler
     compass = require('gulp-compass'),                  // compass compiler
     uglify = require('gulp-uglify'),                    // uglifies the js
     jshint = require('gulp-jshint'),                    // check if js is ok
@@ -39,29 +38,12 @@ var target = {
 
 
 /*******************************************************************************
-3. SASS TASK
+3. COMPASS TASK
 *******************************************************************************/
 
-gulp.task('sass', function() {
-    gulp.src(target.sass_src)                           // get the files
-        .pipe(plumber())                                // make sure gulp keeps running on errors
-        .pipe(sass())                                   // compile all sass
-        .pipe(autoprefixer(                             // complete css with correct vendor prefixes
-            'last 2 version',
-            '> 1%',
-            'ie 8',
-            'ie 9',
-            'ios 6',
-            'android 4'
-        ))
-        .pipe(minifycss())                              // minify css
-        .pipe(gulp.dest(target.css_dest))               // where to put the file
-        .pipe(notify({message: 'SCSS processed!'}));    // notify when done
-});
-
-// COMPASS
 gulp.task('compass', function() {
     gulp.src(target.sass_src)
+        .pipe(plumber()) 
         .pipe(compass({
             css: 'build/css',
             sass: 'dev/scss',
