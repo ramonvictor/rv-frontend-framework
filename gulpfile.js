@@ -4,6 +4,7 @@
 
 var gulp = require('gulp');                             // gulp core
     sass = require('gulp-sass'),                        // sass compiler
+    compass = require('gulp-compass'),                  // compass compiler
     uglify = require('gulp-uglify'),                    // uglifies the js
     jshint = require('gulp-jshint'),                    // check if js is ok
     rename = require("gulp-rename");                    // rename files
@@ -21,20 +22,16 @@ var gulp = require('gulp');                             // gulp core
 *******************************************************************************/
 
 var target = {
-    sass_src : 'css/sass/**/*.scss',                        // all sass files
+    sass_src : 'css/sass/**/*.scss',                    // all sass files
     css_dest : 'css',                                   // where to put minified css
     js_lint_src : [                                     // all js that should be linted
-        'js/build/app.js',
-        'js/build/custom/switch.js',
-        'js/build/custom/scheme-loader.js'
+        'js/app.fn.js'
     ],
     js_uglify_src : [                                   // all js files that should not be concatinated
-        'js/build/custom/scheme-loader.js',
-        'js/build/vendor/modernizr.js'
+        'js/rv-modernizr.js'
     ],
     js_concat_src : [                                   // all js files that should be concatinated
-        'js/build/custom/switch.js',
-        'js/build/app.js'
+        'js/app.fn.js'
     ],
     js_dest : 'js'                                      // where to put minified js
 };
@@ -59,6 +56,19 @@ gulp.task('sass', function() {
         .pipe(minifycss())                              // minify css
         .pipe(gulp.dest(target.css_dest))               // where to put the file
         .pipe(notify({message: 'SCSS processed!'}));    // notify when done
+});
+
+// COMPASS
+gulp.task('compass', function() {
+    gulp.src(target.sass_src)
+        .pipe(compass({
+            css: 'css',
+            sass: 'css/sass',
+            image: 'css/i'
+        }))
+        .pipe(minifycss())
+        .pipe(gulp.dest(target.css_dest))
+        .pipe(notify({message: 'SCSS processed!'})); 
 });
 
 
@@ -86,6 +96,7 @@ gulp.task('js-uglify', function() {
 });
 
 // minify & concatinate all other js
+/*
 gulp.task('js-concat', function() {
     gulp.src(target.js_concat_src)                      // get the files
         .pipe(uglify())                                 // uglify the files
@@ -93,6 +104,7 @@ gulp.task('js-concat', function() {
         .pipe(gulp.dest(target.js_dest))                // where to put the files
         .pipe(notify({message: 'JS processed!'}));      // notify when done
 });
+*/
 
 
 /*******************************************************************************
@@ -114,17 +126,24 @@ gulp.task('browser-sync', function() {
 *******************************************************************************/
 
 gulp.task('default', function() {
-    gulp.run('sass', 'js-lint', 'js-uglify', 'js-concat', 'browser-sync');
-    gulp.watch('scss/**/*.scss', function() {
-        gulp.run('sass');
+    gulp.run('compass', 'js-lint', 'js-uglify' /*'js-concat', 'browser-sync' */ );
+    gulp.watch('css/sass/**/*.scss', function() {
+        gulp.run('compass');
     });
+    
     gulp.watch(target.js_lint_src, function() {
         gulp.run('js-lint');
     });
+
     gulp.watch(target.js_minify_src, function() {
         gulp.run('js-uglify');
     });
-    gulp.watch(target.js_concat_src, function() {
-        gulp.run('js-concat');
+
+    // gulp.watch(target.js_concat_src, function() {
+    //     gulp.run('js-concat');
+    // });
+
+    gulp.watch('tests/e2e/**/*-spec.js', function(event) {
+      console.log('File '+event.path+' was '+event.type+', running tasks...');
     });
 });
