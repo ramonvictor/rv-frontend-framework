@@ -6,7 +6,6 @@
   "repository": "ramonvictor/rv-frontend-framework",
   "devDependencies": {
     "gulp": "^3.6.0",
-    "gulp-sass": "~0.5.2",
     "gulp-compass": "~1.1.8",
     "gulp-autoprefixer": "0.0.4",
     "gulp-minify-css": "~0.2.0",
