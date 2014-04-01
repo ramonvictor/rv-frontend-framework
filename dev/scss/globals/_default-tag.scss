@@ -1,7 +1,5 @@
 @import "compass/css3/transition";
 
-$default-link: green;
-
 html {
   font-size: 100%;
   overflow-y: scroll;
@@ -13,7 +11,7 @@ body {
 body, button, input, select, textarea {
   font-family: Arial,sans-serif;
   color: #929292;
-  font-size: $default-font-size
+  font-size: $default-font-size;
 }
 ::-moz-selection {
   background: #45b2ad;

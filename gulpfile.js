@@ -22,18 +22,19 @@ var gulp = require('gulp');                             // gulp core
 *******************************************************************************/
 
 var target = {
-    sass_src : 'css/sass/**/*.scss',                    // all sass files
-    css_dest : 'css',                                   // where to put minified css
+    sass_src : 'dev/scss/**/*.scss',                        // all sass files
+    css_dest : 'build/css',                                // where to put minified css
     js_lint_src : [                                     // all js that should be linted
-        'js/app.fn.js'
+        'dev/js/app.fn.js'
     ],
     js_uglify_src : [                                   // all js files that should not be concatinated
-        'js/rv-modernizr.js'
+        'dev/js/rv-modernizr.js',
+        'dev/js/app.fn.js'
     ],
     js_concat_src : [                                   // all js files that should be concatinated
-        'js/app.fn.js'
+        'dev/js/app.fn.js'
     ],
-    js_dest : 'js'                                      // where to put minified js
+    js_dest : 'build/js'                                  // where to put minified js
 };
 
 
@@ -62,10 +63,18 @@ gulp.task('sass', function() {
 gulp.task('compass', function() {
     gulp.src(target.sass_src)
         .pipe(compass({
-            css: 'css',
-            sass: 'css/sass',
-            image: 'css/i'
+            css: 'build/css',
+            sass: 'dev/scss',
+            image: 'build/css/i'
         }))
+        .pipe(autoprefixer(
+            'last 2 version',
+            '> 1%',
+            'ie 8',
+            'ie 9',
+            'ios 6',
+            'android 4'
+        ))
         .pipe(minifycss())
         .pipe(gulp.dest(target.css_dest))
         .pipe(notify({message: 'SCSS processed!'})); 
@@ -112,11 +121,13 @@ gulp.task('js-concat', function() {
 *******************************************************************************/
 
 gulp.task('browser-sync', function() {
-    browserSync.init(['css/*.css', 'js/*.js', '**/*.html'], {       // files to inject
+    browserSync.init(['build/css/*.css', 'build/js/*.js', 'build/**/*.html'], {  // files to inject
         proxy: {
             host: 'localhost',             // development server
             port: '8888'                               // development server port
         }
+    }).on("file:reload", function (file) {
+        console.log("# file changed: " + file.assetFileName);
     });
 });
 
@@ -128,7 +139,7 @@ gulp.task('browser-sync', function() {
 gulp.task('default', function() {   
     gulp.run('compass', 'js-lint', 'js-uglify', 'browser-sync' /*'js-concat' */ );
     
-    gulp.watch('css/sass/**/*.scss', function() {
+    gulp.watch('dev/scss/**/*.scss', function() {
         gulp.run('compass');
     });
 
@@ -136,7 +147,7 @@ gulp.task('default', function() {
         gulp.run('js-lint');
     });
 
-    gulp.watch(target.js_minify_src, function() {
+    gulp.watch(target.js_uglify_src, function() {
         gulp.run('js-uglify');
     });
 
@@ -144,7 +155,7 @@ gulp.task('default', function() {
     //     gulp.run('js-concat');
     // });
 
-    gulp.watch('tests/e2e/**/*-spec.js', function(event) {
+    gulp.watch('dev/tests/e2e/**/*-spec.js', function(event) {
       console.log('File '+event.path+' was '+event.type+', running tasks...');
     });
 });
