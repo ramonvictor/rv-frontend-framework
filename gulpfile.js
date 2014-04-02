@@ -13,7 +13,8 @@ var gulp = require('gulp');                             // gulp core
     stylish = require('jshint-stylish'),                // make errors look good in shell
     minifycss = require('gulp-minify-css'),             // minify the css files
     browserSync = require('browser-sync'),              // inject code to all devices
-    autoprefixer = require('gulp-autoprefixer');        // sets missing browserprefixes
+    autoprefixer = require('gulp-autoprefixer'),        // sets missing browserprefixes
+    ptorwatcher = require('gulp-protractor-watcher');        // sets missing browserprefixes
 
 
 /*******************************************************************************
@@ -137,7 +138,6 @@ gulp.task('default', function() {
     //     gulp.run('js-concat');
     // });
 
-    gulp.watch('dev/tests/e2e/**/*-spec.js', function(event) {
-      console.log('File '+event.path+' was '+event.type+', running tasks...');
-    });
+    gulp.src('dev/tests/e2e/**/*-spec.js')
+        .pipe(ptorwatcher());
 });
