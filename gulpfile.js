@@ -14,7 +14,9 @@ var gulp = require('gulp');                             // gulp core
     minifycss = require('gulp-minify-css'),             // minify the css files
     browserSync = require('browser-sync'),              // inject code to all devices
     autoprefixer = require('gulp-autoprefixer'),        // sets missing browserprefixes
-    ptorwatcher = require('gulp-protractor-watcher');        // sets missing browserprefixes
+    ptorwatcher = require('gulp-ptor-watcher');
+
+console.log( "ptor", require('gulp-ptor-watcher') );      
 
 
 /*******************************************************************************
@@ -107,11 +109,16 @@ gulp.task('browser-sync', function() {
     browserSync.init(['build/css/*.css', 'build/js/*.js', 'build/**/*.html'], {  // files to inject
         proxy: {
             host: 'localhost',             // development server
-            port: '8888'                               // development server port
+            port: '80'                               // development server port
         }
     }).on("file:reload", function (file) {
         console.log("# file changed: " + file.assetFileName);
     });
+});
+
+gulp.task('ptor-watcher', function() {
+  gulp.src('dev/tests/e2e/**/*-spec.js')
+        .pipe( ptorwatcher() );
 });
 
 
@@ -120,24 +127,18 @@ gulp.task('browser-sync', function() {
 *******************************************************************************/
 
 gulp.task('default', function() {   
+
     gulp.run('compass', 'js-lint', 'js-uglify', 'browser-sync' /*'js-concat' */ );
     
-    gulp.watch('dev/scss/**/*.scss', function() {
-        gulp.run('compass');
-    });
+    gulp.watch('dev/scss/**/*.scss', ['compass']);
 
-    gulp.watch(target.js_lint_src, function() {
-        gulp.run('js-lint');
-    });
+    gulp.watch(target.js_lint_src, ['js-lint']);
 
-    gulp.watch(target.js_uglify_src, function() {
-        gulp.run('js-uglify');
-    });
+    gulp.watch(target.js_uglify_src, ['js-uglify']);
 
-    // gulp.watch(target.js_concat_src, function() {
-    //     gulp.run('js-concat');
-    // });
+    gulp.watch('dev/tests/e2e/*-spec.js', ['ptor-watcher']);
+    
+    // gulp.watch(target.js_concat_src, ['js-concat']);
 
-    gulp.src('dev/tests/e2e/**/*-spec.js')
-        .pipe(ptorwatcher());
+    
 });
