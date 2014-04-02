@@ -14,9 +14,9 @@ var gulp = require('gulp');                             // gulp core
     minifycss = require('gulp-minify-css'),             // minify the css files
     browserSync = require('browser-sync'),              // inject code to all devices
     autoprefixer = require('gulp-autoprefixer'),        // sets missing browserprefixes
-    ptorwatcher = require('gulp-ptor-watcher');
+    ptorwatcher = require('gulp-protractor-advisor');
 
-console.log( "ptor", require('gulp-ptor-watcher') );      
+// console.log( "ptor", require('gulp-protractor-advisor') );      
 
 
 /*******************************************************************************

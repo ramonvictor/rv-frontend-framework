@@ -7,7 +7,9 @@ describe('angularjs homepage', function() {
     // Find the element with ng-model matching 'yourName' - this will
     // find the <input type="text" ng-model="yourName"/> element - and then
     // type 'Julie' into it.
-    element(by.model('yourName')).sendKeys('Julie');
+    element(by.model('yourNams')).sendKeys('Julie');
+
+    element(by.model('yourName2')).sendKeys('Julie');
 
     // Find the element with binding matching 'yourName' - this will
     // find the <h1>Hello {{yourName}}!</h1> element.
