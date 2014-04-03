@@ -125,20 +125,12 @@ gulp.task('ptor-watcher', function() {
 /*******************************************************************************
 1. GULP TASKS
 *******************************************************************************/
-
-gulp.task('default', function() {   
-
-    gulp.run('compass', 'js-lint', 'js-uglify', 'browser-sync' /*'js-concat' */ );
-    
-    gulp.watch('dev/scss/**/*.scss', ['compass']);
-
+gulp.task('watch', function() {
+    gulp.watch('css/sass/**/*.scss', ['compass']);
     gulp.watch(target.js_lint_src, ['js-lint']);
-
     gulp.watch(target.js_uglify_src, ['js-uglify']);
-
     gulp.watch('dev/tests/e2e/*-spec.js', ['ptor-watcher']);
-    
-    // gulp.watch(target.js_concat_src, ['js-concat']);
-
-    
 });
+
+
+gulp.task('default', ['compass', 'js-lint', 'js-uglify', 'browser-sync', 'watch']);
