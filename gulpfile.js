@@ -2,7 +2,7 @@
 1. DEPENDENCIES
 *******************************************************************************/
 
-var gulp = require('gulp');                             // gulp core
+var gulp = require('gulp'),                             // gulp core
     compass = require('gulp-compass'),                  // compass compiler
     uglify = require('gulp-uglify'),                    // uglifies the js
     jshint = require('gulp-jshint'),                    // check if js is ok
