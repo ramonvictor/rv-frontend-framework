@@ -13,10 +13,8 @@ var gulp = require('gulp');                             // gulp core
     stylish = require('jshint-stylish'),                // make errors look good in shell
     minifycss = require('gulp-minify-css'),             // minify the css files
     browserSync = require('browser-sync'),              // inject code to all devices
-    autoprefixer = require('gulp-autoprefixer'),        // sets missing browserprefixes
-    ptorwatcher = require('gulp-protractor-advisor');
+    autoprefixer = require('gulp-autoprefixer');        // sets missing browserprefixes
 
-// console.log( "ptor", require('gulp-protractor-advisor') );      
 
 
 /*******************************************************************************
@@ -116,12 +114,6 @@ gulp.task('browser-sync', function() {
     });
 });
 
-gulp.task('ptor-watcher', function() {
-  gulp.src('dev/tests/e2e/**/*-spec.js')
-        .pipe( ptorwatcher() );
-});
-
-
 /*******************************************************************************
 1. GULP TASKS
 *******************************************************************************/
@@ -129,7 +121,6 @@ gulp.task('watch', function() {
     gulp.watch('css/sass/**/*.scss', ['compass']);
     gulp.watch(target.js_lint_src, ['js-lint']);
     gulp.watch(target.js_uglify_src, ['js-uglify']);
-    gulp.watch('dev/tests/e2e/*-spec.js', ['ptor-watcher']);
 });
 
 
