@@ -60,7 +60,8 @@ gulp.task('compass', function() {
         ))
         .pipe(minifycss())
         .pipe(gulp.dest(target.css_dest))
-        .pipe(notify({message: 'SCSS processed!'})); 
+        // .pipe(notify({message: 'SCSS processed!'}))
+        ; 
 });
 
 
@@ -84,7 +85,8 @@ gulp.task('js-uglify', function() {
             return trunc + '.min' + ext;
         }))
         .pipe(gulp.dest(target.js_dest))                // where to put the files
-        .pipe(notify({ message: 'JS processed!'}));     // notify when done
+        // .pipe(notify({ message: 'JS processed!'}))     // notify when done
+        ;
 });
 
 // minify & concatinate all other js
@@ -118,7 +120,7 @@ gulp.task('browser-sync', function() {
 1. GULP TASKS
 *******************************************************************************/
 gulp.task('watch', function() {
-    gulp.watch('css/sass/**/*.scss', ['compass']);
+    gulp.watch(target.sass_src, ['compass']);
     gulp.watch(target.js_lint_src, ['js-lint']);
     gulp.watch(target.js_uglify_src, ['js-uglify']);
 });
