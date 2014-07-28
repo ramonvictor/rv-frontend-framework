@@ -22,19 +22,21 @@ var gulp = require('gulp'),                             // gulp core
 *******************************************************************************/
 
 var target = {
-    sass_src : 'dev/scss/**/*.scss',                        // all sass files
-    css_dest : 'build/css',                                // where to put minified css
+    sass_src : 'css/scss/**/*.scss',                        // all sass files
+    css_dest : 'css',                                // where to put minified css
+    sass_folder : 'css/scss',                                // where to put minified css
     js_lint_src : [                                     // all js that should be linted
-        'dev/js/app.fn.js'
+        'js/dev/app.fn.js'
     ],
     js_uglify_src : [                                   // all js files that should not be concatinated
-        'dev/js/rv-modernizr.js',
-        'dev/js/app.fn.js'
+        'js/dev/rv-modernizr.js',
+        'js/dev/app.fn.js'
     ],
     js_concat_src : [                                   // all js files that should be concatinated
-        'dev/js/app.fn.js'
+        'js/dev/app.fn.js'
     ],
-    js_dest : 'build/js'                                  // where to put minified js
+    js_dest : 'js',                                  // where to put minified js
+    css_img : 'css/i'
 };
 
 
@@ -46,9 +48,9 @@ gulp.task('compass', function() {
     gulp.src(target.sass_src)
         .pipe(plumber()) 
         .pipe(compass({
-            css: 'build/css',
-            sass: 'dev/scss',
-            image: 'build/css/i'
+            css: target.css_dest,
+            sass: target.sass_folder,
+            image: target.css_img
         }))
         .pipe(autoprefixer(
             'last 2 version',
@@ -59,9 +61,7 @@ gulp.task('compass', function() {
             'android 4'
         ))
         .pipe(minifycss())
-        .pipe(gulp.dest(target.css_dest))
-        // .pipe(notify({message: 'SCSS processed!'}))
-        ; 
+        .pipe(gulp.dest(target.css_dest)); 
 });
 
 
@@ -106,7 +106,7 @@ gulp.task('js-concat', function() {
 *******************************************************************************/
 
 gulp.task('browser-sync', function() {
-    browserSync.init(['build/css/*.css', 'build/js/*.js', 'build/**/*.html'], {  // files to inject
+    browserSync.init([ target.css_dest + '/*.css', target.js_dest + '/*.js', '**/*.html'], {  // files to inject
         proxy: {
             host: 'localhost',             // development server
             port: '80'                               // development server port

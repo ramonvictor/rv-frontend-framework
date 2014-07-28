@@ -1,8 +1,8 @@
 /* ===================================
  * Project:  <Name>
  * Company:  <Name>
- * Author:   Ramon Victor
- * Date:     03/2013
+ * Author:   Ramon Victor | @ramonvictor
+ * Date:     AUG 2014
  * ===================================
  */
 
@@ -12,5 +12,7 @@
 @import "globals/mixins";
 @import "globals/default-tag";
 
-@import "globals/global";
+@import "app/app";
+
+@import "globals/helpers";
 @import "globals/print";

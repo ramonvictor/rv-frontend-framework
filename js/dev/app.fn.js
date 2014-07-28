@@ -1,6 +1,6 @@
 (function($) {
 	
 	// do something here
-	$("#main").addClass("ready");
+	$("#m").addClass("ready");
 
 }(jQuery));
