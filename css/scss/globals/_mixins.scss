@@ -28,3 +28,19 @@
   width: $w;
   height: $h;
 }
+
+// ---------------------------------------------------------
+// USAGE:
+// 1. @import "icons/*.png";
+// 2. @each $icon-name in icon-file-name, icon-file-name-2 {
+//      @include rv-icon-set( "icons", $icon-name );
+//    }
+@mixin rv-icon-set( $icons-slug, $icon-name ){
+	.#{$icon-name} {
+		display: inline-block;
+		width: icons-sprite-width( $icon-name );
+		height: icons-sprite-height( $icon-name );
+		@include icons-sprite( $icon-name );
+	}
+}
+
