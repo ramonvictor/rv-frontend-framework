@@ -1,3 +1,4 @@
 #main-content{
   margin: 0 auto; 
+  @include rv-sticky(0, 0, false, false);
 }

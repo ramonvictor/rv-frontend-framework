@@ -1,10 +1,30 @@
-@mixin vertical-align( $h ){
+@mixin rv-v-align( $h ){
   height: $h;
   line-height: $h;
 }
 
-@mixin box-dimentions($w, $h){
-  display: block;
+@mixin rv-square( $dimensions ){
+  width: $dimensions;
+  height: $dimensions;
+}
+
+@mixin rv-sticky( $top: false, $right: false, $bottom: false, $left: false ){
+	position: absolute;
+	@if $top != false {
+		top : $top;
+	}
+	@if $right != false {
+		right : $right;
+	}
+	@if $bottom != false {
+		bottom : $bottom;
+	}
+	@if $left != false {
+		left : $left;
+	}
+}
+
+@mixin rv-dimentions($w, $h){
   width: $w;
   height: $h;
 }

@@ -11,7 +11,7 @@ body {
 body, button, input, select, textarea {
   font-family: Arial,sans-serif;
   color: #929292;
-  font-size: $default-font-size;
+  font-size: $font-size-default;
 }
 ::-moz-selection {
   background: #45b2ad;
@@ -24,7 +24,7 @@ body, button, input, select, textarea {
   text-shadow: none
 }
 a {
-  color: $default-link;
+  color: blue;
   text-decoration: none;
   @include single-transition(color, .2s, linear);
 }
@@ -39,12 +39,12 @@ img{
   vertical-align: middle; 
 }
 
-h1, h2, h3 {
-  font-weight: 400;
-  letter-spacing: -.07em;
+h1, h2, h3, h4, h5 {
+  line-height: 140%;
+  margin-bottom: .5em;
 }
 
 p {
-  line-height: 130%;
-  // margin-bottom: .7em;
+  line-height: 150%;
+  margin-bottom: .7em;
 }
